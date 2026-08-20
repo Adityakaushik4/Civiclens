@@ -19,6 +19,7 @@ htmlcov/
 
 # SQLite Databases
 *.db
+!data/bhubaneswar_locations.db
 *.sqlite3
 *.db-journal
 *.db-wal

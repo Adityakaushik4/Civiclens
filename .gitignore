@@ -19,6 +19,7 @@ htmlcov/
 
 # Databases & SQLite WAL
 *.db
+!prototype/civic-lens-ai/data/bhubaneswar_locations.db
 *.sqlite3
 *.db-journal
 *.db-wal

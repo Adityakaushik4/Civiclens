@@ -8,7 +8,12 @@ logger = logging.getLogger("civiclens.database")
 
 Base = declarative_base()
 
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./civic_lens.db")
+RAW_DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./civic_lens.db")
+if RAW_DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = RAW_DATABASE_URL.replace("postgres://", "postgresql://", 1)
+else:
+    DATABASE_URL = RAW_DATABASE_URL
+
 DATABASE_POOL_SIZE = int(os.getenv("DATABASE_POOL_SIZE", "10"))
 DATABASE_MAX_OVERFLOW = int(os.getenv("DATABASE_MAX_OVERFLOW", "20"))
 
@@ -74,9 +79,12 @@ def init_db() -> None:
     """Initializes database schema, extensions, and baseline development accounts."""
     try:
         if DATABASE_URL.startswith("postgresql"):
-            with engine.connect() as conn:
-                conn.execute(text("CREATE EXTENSION IF NOT EXISTS vector;"))
-                conn.commit()
+            try:
+                with engine.connect() as conn:
+                    conn.execute(text("CREATE EXTENSION IF NOT EXISTS vector;"))
+                    conn.commit()
+            except Exception as ext_err:
+                logger.info(f"Optional pgvector extension check skipped: {ext_err}")
         from app.database.models import Base, UserModel
         from app.auth.hash import hash_password
         Base.metadata.create_all(bind=engine)
