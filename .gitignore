@@ -1,0 +1,51 @@
+# Secrets and Environment Variables
+.env
+.env.*
+!.env.example
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+
+# Python Cache & Build Assets
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# Databases & SQLite WAL
+*.db
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+civic_lens.db
+
+# Frontend Node Modules & Build Output
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Editor & OS files
+.vscode/
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temporary scratch scripts & output dumps
+prototype/civic-lens-ai/scratch_*.py
+prototype/civic-lens-ai/db_check_*.txt
+prototype/civic-lens-ai/audit_results.json
+prototype/civic-lens-ai/output*.json
+prototype/civic-lens-ai/test_*.jpg
+prototype/civic-lens-ai/test_*.wav
+prototype/civic-lens-ai/dummy.jpg

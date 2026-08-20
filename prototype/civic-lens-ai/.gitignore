@@ -1,0 +1,27 @@
+# Secrets and Environment Variables
+.env
+.env.*
+!.env.example
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+
+# Python Cache & Build Assets
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# SQLite Databases
+*.db
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+civic_lens.db
+
