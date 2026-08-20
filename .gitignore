@@ -49,3 +49,5 @@ prototype/civic-lens-ai/output*.json
 prototype/civic-lens-ai/test_*.jpg
 prototype/civic-lens-ai/test_*.wav
 prototype/civic-lens-ai/dummy.jpg
+prototype/civic-lens-ai/data/evidence/*
+

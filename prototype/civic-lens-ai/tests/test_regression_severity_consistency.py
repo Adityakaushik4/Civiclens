@@ -32,7 +32,8 @@ def test_api_master_issues_severity_priority_consistency():
             subcategory="POTHOLE",
             severity_score=5,
             latitude=20.0,
-            longitude=85.0
+            longitude=85.0,
+            reporter_id="usr_citizen01"
         ),
         MasterIssueRecord(
             id="TEST-SEV-4",
@@ -41,7 +42,8 @@ def test_api_master_issues_severity_priority_consistency():
             subcategory="POTHOLE",
             severity_score=4,
             latitude=20.0,
-            longitude=85.0
+            longitude=85.0,
+            reporter_id="usr_citizen01"
         ),
         MasterIssueRecord(
             id="TEST-SEV-3",
@@ -50,7 +52,8 @@ def test_api_master_issues_severity_priority_consistency():
             subcategory="POTHOLE",
             severity_score=3,
             latitude=20.0,
-            longitude=85.0
+            longitude=85.0,
+            reporter_id="usr_citizen01"
         ),
         MasterIssueRecord(
             id="TEST-SEV-2",
@@ -59,7 +62,8 @@ def test_api_master_issues_severity_priority_consistency():
             subcategory="POTHOLE",
             severity_score=2,
             latitude=20.0,
-            longitude=85.0
+            longitude=85.0,
+            reporter_id="usr_citizen01"
         ),
         MasterIssueRecord(
             id="TEST-SEV-1",
@@ -68,7 +72,8 @@ def test_api_master_issues_severity_priority_consistency():
             subcategory="POTHOLE",
             severity_score=1,
             latitude=20.0,
-            longitude=85.0
+            longitude=85.0,
+            reporter_id="usr_citizen01"
         )
     ]
     

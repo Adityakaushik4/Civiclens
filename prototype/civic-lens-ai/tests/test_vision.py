@@ -303,10 +303,22 @@ def test_2_text_plus_conflicting_image():
 
 
 def test_3_text_only():
-    response = client.post("/api/v1/ai/analyze", json={"text": "There is a broken streetlight near my house."})
-    assert response.status_code == 200
-    res = response.json()
-    assert res["category"] == "STREETLIGHT"
+    async def mock_extract_structured(self, text: str, language: str, retry_prompt=None):
+        return {
+            "category": "STREETLIGHT",
+            "subcategory": "LIGHT_OUT",
+            "severity": 3,
+            "safety_risk": False,
+            "public_impact": 3,
+            "summary": text,
+            "confidence": 0.95
+        }
+
+    with patch("app.llm.gemini_provider.GeminiLLMProvider.extract_structured", side_effect=mock_extract_structured, autospec=True):
+        response = client.post("/api/v1/ai/analyze", json={"text": "There is a broken streetlight near my house."})
+        assert response.status_code == 200
+        res = response.json()
+        assert res["category"] == "STREETLIGHT"
 
 
 def test_4_image_only():

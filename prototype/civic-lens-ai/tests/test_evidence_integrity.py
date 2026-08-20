@@ -10,13 +10,15 @@ from app.database.connection import SessionLocal, engine
 from app.database import models
 import pytest
 
+from app.database import init_db
+
 client = TestClient(app)
 
 @pytest.fixture(autouse=True)
 def setup_test_db():
-    models.Base.metadata.create_all(bind=engine)
+    init_db()
     yield
-    models.Base.metadata.drop_all(bind=engine)
+    init_db()
     master_issue_store.clear()
     escalation_store._records.clear()
     routing_store._decisions.clear()
