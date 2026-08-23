@@ -429,9 +429,6 @@ Create `.env` in `prototype/civic-lens-frontend/` for frontend configuration:
 | :--- | :--- | :--- | :--- |
 | `VITE_API_BASE_URL` | Base URL pointing to FastAPI backend | Production | `http://localhost:8000` (Local) / Render Web Service URL |
 
-> [!CAUTION]
-> Never commit actual API keys, database passwords, or JWT secrets to version control. Always use environment variable files (`.env`).
-
 ---
 
 ## 🗄️ 16. Database Setup & Initialization
